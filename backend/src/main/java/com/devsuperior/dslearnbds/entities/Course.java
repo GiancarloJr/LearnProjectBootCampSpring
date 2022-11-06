@@ -2,6 +2,8 @@ package com.devsuperior.dslearnbds.entities;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -18,6 +20,13 @@ public class Course {
     private String imgUri;
     @Column(columnDefinition = "TEXT")
     private String imgGrayUri;
+
+    @OneToMany(mappedBy = "course")
+    private List<Offer> offers = new ArrayList<>();
+
+    public List<Offer> getOffers() {
+        return offers;
+    }
 
     public Course(){
         }
