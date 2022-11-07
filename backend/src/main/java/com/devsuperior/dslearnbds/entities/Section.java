@@ -1,7 +1,5 @@
 package com.devsuperior.dslearnbds.entities;
 
-import com.devsuperior.dslearnbds.entities.enums.ResourceType;
-
 import javax.persistence.*;
 import java.util.Objects;
 
