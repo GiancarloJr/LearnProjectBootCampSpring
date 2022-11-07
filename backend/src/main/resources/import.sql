@@ -21,3 +21,7 @@ INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('2.0
 INSERT INTO tb_resource (title, description, position, img_Uri,type, offer_id) VALUES ('Trilha HTML', 'Trilha Principal', 1,'https://campustechnology.com/-/media/EDU/CampusTechnology/2019-Images/20191209online.jpg',1,1);
 INSERT INTO tb_resource (title, description, position, img_Uri,type, offer_id) VALUES ('FORUM', 'DUVIDAS', 2,'https://campustechnology.com/-/media/EDU/CampusTechnology/2019-Images/20191209online.jpg',2,1);
 INSERT INTO tb_resource (title, description, position, img_Uri,type, offer_id) VALUES ('LIVES', 'LIVES BONUS', 3,'https://campustechnology.com/-/media/EDU/CampusTechnology/2019-Images/20191209online.jpg',0,1);
+
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('CAP 01', 'CAPITULO 1 NOVO', 1, 'https://campustechnology.com/-/media/EDU/CampusTechnology/2019-Images/20191209online.jpg', 1,null );
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('CAP 02', 'CAPITULO 2 NOVO', 2, 'https://campustechnology.com/-/media/EDU/CampusTechnology/2019-Images/20191209online.jpg', 1,1 );
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('CAP 03', 'CAPITULO 3 NOVO', 3, 'https://campustechnology.com/-/media/EDU/CampusTechnology/2019-Images/20191209online.jpg', 1,2 );
