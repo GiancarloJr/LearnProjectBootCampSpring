@@ -1,12 +1,14 @@
 package com.devsuperior.dslearnbds.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.Instant;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_offer")
-public class Offer {
+public class Offer implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +20,13 @@ public class Offer {
     @ManyToOne
     @JoinColumn(name= "course_id")
     private Course course;
+
+    @OneToMany(mappedBy = "offer")
+    private List<Resource> resources = new ArrayList<>();
+
+    public List<Resource> getResources() {
+        return resources;
+    }
 
     public Offer(){
     }
@@ -75,11 +84,11 @@ public class Offer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Offer offer = (Offer) o;
-        return id.equals(offer.id) && Objects.equals(edition, offer.edition) && Objects.equals(startMoment, offer.startMoment) && Objects.equals(endMoment, offer.endMoment) && Objects.equals(course, offer.course);
+        return id.equals(offer.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, edition, startMoment, endMoment, course);
+        return Objects.hash(id);
     }
 }
