@@ -25,3 +25,6 @@ INSERT INTO tb_resource (title, description, position, img_Uri,type, offer_id) V
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('CAP 01', 'CAPITULO 1 NOVO', 1, 'https://campustechnology.com/-/media/EDU/CampusTechnology/2019-Images/20191209online.jpg', 1,null );
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('CAP 02', 'CAPITULO 2 NOVO', 2, 'https://campustechnology.com/-/media/EDU/CampusTechnology/2019-Images/20191209online.jpg', 1,1 );
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('CAP 03', 'CAPITULO 3 NOVO', 3, 'https://campustechnology.com/-/media/EDU/CampusTechnology/2019-Images/20191209online.jpg', 1,2 );
+
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (1,1,TIMESTAMP WITH TIME ZONE '2020-07-13T13:00:00',NULL, TRUE, FALSE);
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (2,1,TIMESTAMP WITH TIME ZONE '2020-07-13T13:00:00',NULL, TRUE, FALSE);
