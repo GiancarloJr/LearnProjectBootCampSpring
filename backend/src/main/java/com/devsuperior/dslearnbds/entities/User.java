@@ -122,4 +122,13 @@ public class User implements UserDetails {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    public boolean hasRole(String rolename){
+        for(Role role: roles){
+            if(role.getAuthority().equals(rolename)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

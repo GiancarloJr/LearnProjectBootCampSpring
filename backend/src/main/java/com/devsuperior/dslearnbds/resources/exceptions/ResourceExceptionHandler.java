@@ -2,7 +2,9 @@ package com.devsuperior.dslearnbds.resources.exceptions;
 
 
 import com.devsuperior.dslearnbds.services.exceptions.DataBaseException;
+import com.devsuperior.dslearnbds.services.exceptions.ForbiddenException;
 import com.devsuperior.dslearnbds.services.exceptions.ResourceNotFoundException;
+import com.devsuperior.dslearnbds.services.exceptions.UnauthorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -38,6 +40,19 @@ public class ResourceExceptionHandler {
 
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<OAuthCustomError> forbidden(ForbiddenException e, HttpServletRequest request){
+            OAuthCustomError err = new OAuthCustomError("Forbidden", e.getMessage());
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(err);
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<OAuthCustomError> unauthorized(UnauthorizedException e, HttpServletRequest request){
+            OAuthCustomError err = new OAuthCustomError("Unauthorized", e.getMessage());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(err);
+    }
+
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public ResponseEntity<ValidationError> Validation(MethodArgumentNotValidException e, HttpServletRequest request){
             ValidationError error = new ValidationError();
@@ -52,5 +67,7 @@ public class ResourceExceptionHandler {
 
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
+
+
 
 }

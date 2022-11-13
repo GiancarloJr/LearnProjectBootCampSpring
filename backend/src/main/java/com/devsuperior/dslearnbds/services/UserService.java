@@ -19,6 +19,9 @@ import java.util.Optional;
 public class UserService implements UserDetailsService {
 
     @Autowired
+    private AuthService authService;
+
+    @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
     private static Logger logger = LoggerFactory.getLogger(UserService.class);
@@ -27,6 +30,7 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
 
     public UserDTO findById(Long id){
+        authService.validateSelfOrAdmin(id);
         Optional<User> obj = userRepository.findById(id);
         User entity = obj.orElseThrow(()-> new ResourceNotFoundException("Entity not found"));
         return new UserDTO(entity);
